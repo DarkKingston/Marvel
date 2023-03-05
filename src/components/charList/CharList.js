@@ -22,8 +22,12 @@ class CharList extends Component {
         this.marvelService.getAllCharacters()
             .then(data => {
                 const charList = data.map(val => {
+
+                    
                     return (
-                                <li className="char__item"  key={val.id}>
+                                <li className="char__item"  
+                                key={val.id}
+                                onClick={() => this.props.onCharSelected(val.id)}>
                                     <img src={val.thumbnail} alt="Hero_image" />
                                     <div className="char__name">{val.name}</div>
                                 </li>
